@@ -24,8 +24,14 @@ API = "https://apibu.herokuapp.com/api/y-images?query="
 @Bot.on_message(filters.private & filters.command(["start"]))
 async def start(bot, update):
     await update.reply_text(
-        text=f"Hello {update.from_user.mention}, I am a yandex image search bot. You can use me in inline.\n\nMade by @FayasNoushad",
-        disable_web_page_preview=True,
+        text=f"Hello {update.from_user.mention}, \n\nI am a yandex image search bot. You can use me in inline.\n\nMade by @FayasNoushad",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton(text="Search Now 🔎", switch_inline_query_current_chat='')],
+                [InlineKeyboardButton(text="Go Inline 🛒", switch_inline_query='')]
+                [InlineKeyboardButton(text="Update Channel 🗣", url='https://t.me/SBS_Studio')]
+            ]
+        ),        disable_web_page_preview=True,
         quote=True
     )
 
@@ -36,8 +42,8 @@ async def filter_text(bot, update):
         text=f"Click the button below for searching your query.\n\nQuery: `{update.text}`",
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton(text="Search Here", switch_inline_query_current_chat=update.text)],
-                [InlineKeyboardButton(text="Search in another chat", switch_inline_query=update.text)]
+                [InlineKeyboardButton(text="Search Now 🔎", switch_inline_query_current_chat=update.text)],
+                [InlineKeyboardButton(text="Go Inline 🛒", switch_inline_query=update.text)]
             ]
         ),
         disable_web_page_preview=True,
