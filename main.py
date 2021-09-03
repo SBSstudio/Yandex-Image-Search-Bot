@@ -38,7 +38,6 @@ async def filter_text(bot, update):
             [
                 [InlineKeyboardButton(text="Search Now 🔎", switch_inline_query_current_chat=update.text)],
                 [InlineKeyboardButton(text="Go Inline 🛒", switch_inline_query=update.text)]
-                [InlineKeyboardButton(text="Update Channel 🗣", url="https://t.me/SBS_Studio")]
             ]
         ),
         disable_web_page_preview=True,
